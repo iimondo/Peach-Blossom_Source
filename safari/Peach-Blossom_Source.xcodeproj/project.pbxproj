@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		982CBDDB27A4FF010018090A /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 982CBDDA27A4FF010018090A /* popup */; };
+		9857FB5327A4ED6C00D3A8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */; };
+		9857FB5727A4ED6C00D3A8FE /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5527A4ED6C00D3A8FE /* Main.html */; };
+		9857FB5927A4ED6C00D3A8FE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5827A4ED6C00D3A8FE /* Icon.png */; };
+		9857FB5B27A4ED6C00D3A8FE /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5A27A4ED6C00D3A8FE /* Style.css */; };
+		9857FB5D27A4ED6C00D3A8FE /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5C27A4ED6C00D3A8FE /* Script.js */; };
+		9857FB5F27A4ED6C00D3A8FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857FB5E27A4ED6C00D3A8FE /* ViewController.swift */; };
+		9857FB6227A4ED6C00D3A8FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB6027A4ED6C00D3A8FE /* Main.storyboard */; };
+		9857FB6427A4ED6D00D3A8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB6327A4ED6D00D3A8FE /* Assets.xcassets */; };
+		9857FB6C27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9857FB6B27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9857FB7127A4ED6E00D3A8FE /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857FB7027A4ED6E00D3A8FE /* SafariWebExtensionHandler.swift */; };
+		9857FB7627A4ED6E00D3A8FE /* images in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB7527A4ED6E00D3A8FE /* images */; };
+		9857FB7827A4ED6E00D3A8FE /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB7727A4ED6E00D3A8FE /* manifest.json */; };
+		986E075527A5473F00319706 /* content_scripts in Resources */ = {isa = PBXBuildFile; fileRef = 986E075427A5473F00319706 /* content_scripts */; };
+		98AC459A27A7C80000000589 /* zhihu_hot.js in Resources */ = {isa = PBXBuildFile; fileRef = 98AC459927A7C80000000589 /* zhihu_hot.js */; };
+		98AC459C27A7CCC200000589 /* weibo_hot_search.js in Resources */ = {isa = PBXBuildFile; fileRef = 98AC459B27A7CCC200000589 /* weibo_hot_search.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9857FB6D27A4ED6E00D3A8FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9857FB4727A4ED6C00D3A8FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9857FB6A27A4ED6E00D3A8FE;
+			remoteInfo = "Peach-Blossom_Source Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9857FB8A27A4ED6E00D3A8FE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9857FB6C27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		982CBDDA27A4FF010018090A /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = popup; sourceTree = "<group>"; };
+		9857FB4F27A4ED6C00D3A8FE /* Peach-Blossom_Source.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peach-Blossom_Source.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9857FB5627A4ED6C00D3A8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		9857FB5827A4ED6C00D3A8FE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		9857FB5A27A4ED6C00D3A8FE /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		9857FB5C27A4ED6C00D3A8FE /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		9857FB5E27A4ED6C00D3A8FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9857FB6127A4ED6C00D3A8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9857FB6327A4ED6D00D3A8FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9857FB6527A4ED6D00D3A8FE /* Peach_Blossom_Source.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Peach_Blossom_Source.entitlements; sourceTree = "<group>"; };
+		9857FB6627A4ED6D00D3A8FE /* Peach-Blossom_Source.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Peach-Blossom_Source.entitlements"; sourceTree = "<group>"; };
+		9857FB6B27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Peach-Blossom_Source Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9857FB7027A4ED6E00D3A8FE /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		9857FB7527A4ED6E00D3A8FE /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		9857FB7727A4ED6E00D3A8FE /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		9857FB8327A4ED6E00D3A8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9857FB8427A4ED6E00D3A8FE /* Peach_Blossom_Source_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Peach_Blossom_Source_Extension.entitlements; sourceTree = "<group>"; };
+		986E075427A5473F00319706 /* content_scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = content_scripts; sourceTree = "<group>"; };
+		98AC459927A7C80000000589 /* zhihu_hot.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = zhihu_hot.js; path = content_scripts/zhihu_hot.js; sourceTree = "<group>"; };
+		98AC459B27A7CCC200000589 /* weibo_hot_search.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = weibo_hot_search.js; path = content_scripts/weibo_hot_search.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9857FB4C27A4ED6C00D3A8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9857FB6827A4ED6E00D3A8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9857FB4627A4ED6C00D3A8FE = {
+			isa = PBXGroup;
+			children = (
+				9857FB5127A4ED6C00D3A8FE /* Peach-Blossom_Source */,
+				9857FB6F27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension */,
+				9857FB5027A4ED6C00D3A8FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9857FB5027A4ED6C00D3A8FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9857FB4F27A4ED6C00D3A8FE /* Peach-Blossom_Source.app */,
+				9857FB6B27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9857FB5127A4ED6C00D3A8FE /* Peach-Blossom_Source */ = {
+			isa = PBXGroup;
+			children = (
+				9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */,
+				9857FB5E27A4ED6C00D3A8FE /* ViewController.swift */,
+				9857FB6027A4ED6C00D3A8FE /* Main.storyboard */,
+				9857FB6327A4ED6D00D3A8FE /* Assets.xcassets */,
+				9857FB6527A4ED6D00D3A8FE /* Peach_Blossom_Source.entitlements */,
+				9857FB6627A4ED6D00D3A8FE /* Peach-Blossom_Source.entitlements */,
+				9857FB5427A4ED6C00D3A8FE /* Resources */,
+			);
+			path = "Peach-Blossom_Source";
+			sourceTree = "<group>";
+		};
+		9857FB5427A4ED6C00D3A8FE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9857FB5527A4ED6C00D3A8FE /* Main.html */,
+				9857FB5827A4ED6C00D3A8FE /* Icon.png */,
+				9857FB5A27A4ED6C00D3A8FE /* Style.css */,
+				9857FB5C27A4ED6C00D3A8FE /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9857FB6F27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9857FB7027A4ED6E00D3A8FE /* SafariWebExtensionHandler.swift */,
+				9857FB8327A4ED6E00D3A8FE /* Info.plist */,
+				9857FB8427A4ED6E00D3A8FE /* Peach_Blossom_Source_Extension.entitlements */,
+				9857FB7227A4ED6E00D3A8FE /* Resources */,
+			);
+			path = "Peach-Blossom_Source Extension";
+			sourceTree = "<group>";
+		};
+		9857FB7227A4ED6E00D3A8FE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				982CBDDA27A4FF010018090A /* popup */,
+				9857FB7527A4ED6E00D3A8FE /* images */,
+				9857FB7727A4ED6E00D3A8FE /* manifest.json */,
+				986E075427A5473F00319706 /* content_scripts */,
+				98AC459927A7C80000000589 /* zhihu_hot.js */,
+				98AC459B27A7CCC200000589 /* weibo_hot_search.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9857FB4E27A4ED6C00D3A8FE /* Peach-Blossom_Source */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9857FB8B27A4ED6E00D3A8FE /* Build configuration list for PBXNativeTarget "Peach-Blossom_Source" */;
+			buildPhases = (
+				9857FB4B27A4ED6C00D3A8FE /* Sources */,
+				9857FB4C27A4ED6C00D3A8FE /* Frameworks */,
+				9857FB4D27A4ED6C00D3A8FE /* Resources */,
+				9857FB8A27A4ED6E00D3A8FE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9857FB6E27A4ED6E00D3A8FE /* PBXTargetDependency */,
+			);
+			name = "Peach-Blossom_Source";
+			productName = "Peach-Blossom_Source";
+			productReference = 9857FB4F27A4ED6C00D3A8FE /* Peach-Blossom_Source.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9857FB6A27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9857FB8727A4ED6E00D3A8FE /* Build configuration list for PBXNativeTarget "Peach-Blossom_Source Extension" */;
+			buildPhases = (
+				9857FB6727A4ED6E00D3A8FE /* Sources */,
+				9857FB6827A4ED6E00D3A8FE /* Frameworks */,
+				9857FB6927A4ED6E00D3A8FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Peach-Blossom_Source Extension";
+			productName = "Peach-Blossom_Source Extension";
+			productReference = 9857FB6B27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9857FB4727A4ED6C00D3A8FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					9857FB4E27A4ED6C00D3A8FE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					9857FB6A27A4ED6E00D3A8FE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 9857FB4A27A4ED6C00D3A8FE /* Build configuration list for PBXProject "Peach-Blossom_Source" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9857FB4627A4ED6C00D3A8FE;
+			productRefGroup = 9857FB5027A4ED6C00D3A8FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9857FB4E27A4ED6C00D3A8FE /* Peach-Blossom_Source */,
+				9857FB6A27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9857FB4D27A4ED6C00D3A8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9857FB5927A4ED6C00D3A8FE /* Icon.png in Resources */,
+				9857FB6227A4ED6C00D3A8FE /* Main.storyboard in Resources */,
+				9857FB5D27A4ED6C00D3A8FE /* Script.js in Resources */,
+				9857FB5727A4ED6C00D3A8FE /* Main.html in Resources */,
+				9857FB6427A4ED6D00D3A8FE /* Assets.xcassets in Resources */,
+				9857FB5B27A4ED6C00D3A8FE /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9857FB6927A4ED6E00D3A8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9857FB7627A4ED6E00D3A8FE /* images in Resources */,
+				98AC459C27A7CCC200000589 /* weibo_hot_search.js in Resources */,
+				98AC459A27A7C80000000589 /* zhihu_hot.js in Resources */,
+				9857FB7827A4ED6E00D3A8FE /* manifest.json in Resources */,
+				982CBDDB27A4FF010018090A /* popup in Resources */,
+				986E075527A5473F00319706 /* content_scripts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9857FB4B27A4ED6C00D3A8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9857FB5F27A4ED6C00D3A8FE /* ViewController.swift in Sources */,
+				9857FB5327A4ED6C00D3A8FE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9857FB6727A4ED6E00D3A8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9857FB7127A4ED6E00D3A8FE /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9857FB6E27A4ED6E00D3A8FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9857FB6A27A4ED6E00D3A8FE /* Peach-Blossom_Source Extension */;
+			targetProxy = 9857FB6D27A4ED6E00D3A8FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9857FB5527A4ED6C00D3A8FE /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9857FB5627A4ED6C00D3A8FE /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		9857FB6027A4ED6C00D3A8FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9857FB6127A4ED6C00D3A8FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9857FB8527A4ED6E00D3A8FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9857FB8627A4ED6E00D3A8FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9857FB8827A4ED6E00D3A8FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Peach-Blossom_Source Extension/Peach_Blossom_Source_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q46Y7539NV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Peach-Blossom_Source Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Peach-Blossom_Source Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mondo.Peach-Blossom-Source.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9857FB8927A4ED6E00D3A8FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Peach-Blossom_Source Extension/Peach_Blossom_Source_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q46Y7539NV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Peach-Blossom_Source Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Peach-Blossom_Source Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mondo.Peach-Blossom-Source.Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9857FB8C27A4ED6E00D3A8FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Peach-Blossom_Source/Peach-Blossom_Source.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q46Y7539NV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Peach-Blossom_Source";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mondo.Peach-Blossom-Source";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9857FB8D27A4ED6E00D3A8FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Peach-Blossom_Source/Peach-Blossom_Source.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q46Y7539NV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Peach-Blossom_Source";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mondo.Peach-Blossom-Source";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9857FB4A27A4ED6C00D3A8FE /* Build configuration list for PBXProject "Peach-Blossom_Source" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9857FB8527A4ED6E00D3A8FE /* Debug */,
+				9857FB8627A4ED6E00D3A8FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9857FB8727A4ED6E00D3A8FE /* Build configuration list for PBXNativeTarget "Peach-Blossom_Source Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9857FB8827A4ED6E00D3A8FE /* Debug */,
+				9857FB8927A4ED6E00D3A8FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9857FB8B27A4ED6E00D3A8FE /* Build configuration list for PBXNativeTarget "Peach-Blossom_Source" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9857FB8C27A4ED6E00D3A8FE /* Debug */,
+				9857FB8D27A4ED6E00D3A8FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9857FB4727A4ED6C00D3A8FE /* Project object */;
+}

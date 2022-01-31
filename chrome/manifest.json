@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "桃花源",
+    "version": "0.0.1",
+    "description": "屏蔽",
+
+    "browser_action": {
+        "default_icon": "icon/bilibili.png",
+        "default_title": "page action",
+        "default_popup": "main_home_popup.html"
+    },
+
+    "permissions": ["declarativeContent", "storage"],
+
+    "content_scripts":[
+        {
+            "matches": ["*://*.douban.com/group/*"],
+            "run_at": "document_end",
+            "js": ["content_scripts/douban/group.js"]
+        },
+        {
+            "matches": ["*://*.weibo.com/*","*://*.weibo.com/hot/search/*"],
+            "run_at": "document_end",
+            "js": ["content_scripts/weibo/hot_search.js"]
+        },
+        {
+            "matches": ["*://*.zhihu.com/*"],
+            "run_at": "document_end",
+            "js": ["content_scripts/zhihu.js"]
+        }
+    ],
+
+    "background": {
+        "scripts": ["background/background_script.js"]
+    }
+    
+}
