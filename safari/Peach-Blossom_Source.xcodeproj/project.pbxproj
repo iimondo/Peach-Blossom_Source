@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		982CBDDB27A4FF010018090A /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 982CBDDA27A4FF010018090A /* popup */; };
+		98446A0427A905F900C8D531 /* douban.js in Resources */ = {isa = PBXBuildFile; fileRef = 98446A0327A905F900C8D531 /* douban.js */; };
 		9857FB5327A4ED6C00D3A8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */; };
 		9857FB5727A4ED6C00D3A8FE /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5527A4ED6C00D3A8FE /* Main.html */; };
 		9857FB5927A4ED6C00D3A8FE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5827A4ED6C00D3A8FE /* Icon.png */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		982CBDDA27A4FF010018090A /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = popup; sourceTree = "<group>"; };
+		98446A0327A905F900C8D531 /* douban.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = douban.js; path = content_scripts/douban.js; sourceTree = "<group>"; };
 		9857FB4F27A4ED6C00D3A8FE /* Peach-Blossom_Source.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peach-Blossom_Source.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9857FB5627A4ED6C00D3A8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				986E075427A5473F00319706 /* content_scripts */,
 				98AC459927A7C80000000589 /* zhihu_hot.js */,
 				98AC459B27A7CCC200000589 /* weibo_hot_search.js */,
+				98446A0327A905F900C8D531 /* douban.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				9857FB7627A4ED6E00D3A8FE /* images in Resources */,
 				98AC459C27A7CCC200000589 /* weibo_hot_search.js in Resources */,
 				98AC459A27A7C80000000589 /* zhihu_hot.js in Resources */,
+				98446A0427A905F900C8D531 /* douban.js in Resources */,
 				9857FB7827A4ED6E00D3A8FE /* manifest.json in Resources */,
 				982CBDDB27A4FF010018090A /* popup in Resources */,
 				986E075527A5473F00319706 /* content_scripts in Resources */,
