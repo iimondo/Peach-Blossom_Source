@@ -31,7 +31,7 @@
             "js": ["content_scripts/zhihu_hot.js"]
         },
         {
-            "matches": ["*://weibo.com/hot/search"],
+            "matches": ["*://weibo.com/hot/search", "*://weibo.com/hot/topic"],
             "run_at": "document_end",
             "js": ["content_scripts/weibo_hot_search.js"]
         }

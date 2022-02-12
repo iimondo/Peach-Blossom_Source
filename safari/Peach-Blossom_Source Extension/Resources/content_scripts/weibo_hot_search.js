@@ -1,83 +1,102 @@
-// 获取本地数据
-function loadLocalData(){
-    browser.storage.local.get('filter_keyword').then(items => {
-        if(JSON.stringify(items) !== "{}"){
-            filterHotContent(items.filter_keyword.split(','));
-        }
-        console.log(items);
-    }, error => console.log(error));
-}
-
-
-const keywords = ['羽生结弦','美国'];
+let local_filter_keywords = [];
 
 // 微博内容为动态生成
 let intervalID = setInterval(function(){
     let item_wrapper = document.querySelector('.vue-recycle-scroller__item-wrapper');
     if(item_wrapper !== null){
         clearInterval(intervalID);
-        
-        //filterHotContent(keywords, item_wrapper);
-        
-        //registerObserver();
+        loadLocalData();
+        registerObserver();
     }
 }, 100);
 
 
-// 过滤热榜内容
-function filterHotContent(filterKeyword, target){
-    let cartItemList = target.querySelectorAll('.vue-recycle-scroller__item-view');
-    
-    cartItemList.forEach(item =>  {
-        let cartTitle  = item.querySelector('.HotTopic_tit_eS4fv');
-        
-        if(cartTitle != null){
-            // 如果包含过滤关键字，返回数组
-            const result = filterKeyword.filter(keyword => {
-                if(keyword.indexOf("/") === -1){ // 判断是否为正则
-                    return cartTitle.innerText.indexOf(keyword) !== -1;
-                }
-                
-                // 正则过滤
-                return new RegExp(keyword.replaceAll("/","")).test(cartTitle.innerText);
-            });
+// 获取本地数据
+function loadLocalData(){
+    browser.storage.local.get('filter_keyword').then(items => {
+        console.log(`过滤关键字：${JSON.stringify(items.filter_keyword)}`);
+        if(JSON.stringify(items) !== "{}"){
+            local_filter_keywords = items.filter_keyword.split(',');
             
-            if(Array.isArray(result) && result.length > 0){
-                if(item.style.display !== 'none'){
-                    item.style.display = 'none';
-                }
-                
-            } else {
-                if(item.style.display !== 'block'){
-                    item.style.display = 'block';
-                }
-            }
+            // 初始过滤显示内容
+            filterVisibContent();
         }
-    });
+        
+    }, error => console.log(error));
 }
 
 
-// 注册观察
+// 监听内容改变
 function registerObserver(){
     function callback(mutationList, observer) {
       mutationList.forEach((mutation) => {
         switch(mutation.type) {
             case 'attributes':
-                filterHotContent(keywords, mutation.target);
-                console.log(mutation);
-              break;
+                filterVisibContent();
+                break;
         }
       });
     }
 
-    var observer = new MutationObserver(callback);
-    observer.observe(
-                     document.querySelector('.vue-recycle-scroller__item-wrapper'),
-                     {
-                        attributes: true,
-                        //attributeFilter: ["transform"],
-                        childList: true,
-                        subtree: true
-                     }
-                     );
+    let observer = new MutationObserver(callback);
+    let target = document.querySelector('.vue-recycle-scroller__item-wrapper');
+    let options = {
+        subtree: true,
+        attributeOldValue: true,
+        attributeFilter: [ "data-index" ]
+    }
+    
+    observer.observe(target, options);
+}
+
+
+// 过滤可见所有条目
+function filterVisibContent(){
+    let itemList = document.querySelectorAll('.vue-recycle-scroller__item-view');
+    itemList.forEach(item => filterContent_(local_filter_keywords, item));
+}
+
+
+// 过滤单个内容
+function filterContent_(filterKeyword, item){
+    let itemFlex = item.querySelector('.HotTopic_tit_eS4fv'); // .woo-box-item-flex
+ 
+    if(itemFlex == null){
+        console.log('filterContent_().itemFlex not found');
+        return false;
+    }
+    
+    const filter_result = filterKeyword.filter(keyword => {
+        if(keyword.indexOf("/") === -1){ // 判断是否为正则
+            return itemFlex.innerText.indexOf(keyword) !== -1;
+        }
+        
+        // 正则过滤
+        return new RegExp(keyword.replaceAll("/","")).test(itemFlex.innerText);
+    });
+        
+    // 结果为包含过滤关键字数组
+    if(Array.isArray(filter_result) && filter_result.length > 0){
+        item.style.display = 'none';
+        printFilterInfo(filter_result, item);
+        return;
+    }
+    
+    if(item.style.display === 'none'){
+        item.style.display = 'block';
+    }
+}
+
+
+// 打印过滤信息
+function printFilterInfo(keywords, element){
+    let index = -1;
+    let item = element.querySelector('.wbpro-scroller-item');
+    
+    if(item != null){
+        index = item.getAttribute('data-index');
+    }
+    
+    let title = element.querySelector('.HotTopic_tit_eS4fv').innerText;
+    console.log(`关键字：${keywords}\n位置：${index}\n标题：${title}`);
 }
