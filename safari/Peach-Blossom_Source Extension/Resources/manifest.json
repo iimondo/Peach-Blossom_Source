@@ -1,7 +1,6 @@
 {
     "manifest_version": 2,
     "default_locale": "zh-cn",
-
     "name": "Peach-Blossom_Source",
     "description": "内容屏蔽",
     "version": "1.0",
@@ -16,16 +15,6 @@
 
     "content_scripts": [
         {
-            "matches": ["*://*.douban.com/group/*"],
-            "run_at": "document_end",
-            "js": ["content_scripts/douban_group.js"]
-        },
-        {
-            "matches": ["*://*.douban.com/"],
-            "run_at": "document_end",
-            "js": ["content_scripts/douban.js"]
-        },
-        {
             "matches": ["*://*.zhihu.com/*"],
             "run_at": "document_end",
             "js": ["content_scripts/zhihu_hot.js"]
@@ -36,6 +25,10 @@
             "js": ["content_scripts/weibo_hot_search.js"]
         }
     ],
+    
+    "background": {
+        "scripts": ["background.js"]
+    },
 
     "browser_action": {
         "default_popup": "popup/popup.html",

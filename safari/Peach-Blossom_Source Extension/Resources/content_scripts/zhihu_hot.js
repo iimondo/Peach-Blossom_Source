@@ -4,10 +4,9 @@ let local_filter_keywords = [];
 // 获取本地数据
 function loadLocalData(){
     browser.storage.local.get('filter_keyword').then(items => {
-        console.log(`过滤关键字：${JSON.stringify(items.filter_keyword)}`);
-        
         if(JSON.stringify(items) !== "{}"){
-            local_filter_keywords = items.filter_keyword.split(',');
+            local_filter_keywords = clear_expire_rule(items.filter_keyword);
+            console.log('有效关键字', local_filter_keywords, items.filter_keyword);
             
             filterHotContent(local_filter_keywords, getContainerElement());
             
@@ -15,6 +14,20 @@ function loadLocalData(){
         }
         
     }, error => console.log(error));
+}
+
+
+// 清除过期数据, 返回为不过期数据
+function clear_expire_rule(datas){
+   return datas
+            .filter(item => (item.platform == 'zhihu' || item.platform == 'all')) // 过滤平台
+            .filter(item => {
+                if(item.expire == ""){ // 默认永久时间
+                    return true;
+                }
+        
+                return new Date(item.expire.replace(/-/g,'/')).getTime() > new Date().getTime();
+            });
 }
 
 
@@ -65,18 +78,21 @@ function filterHotContent_(filterKeyword, element){
         return false;
     }
     
-    const filter_result = filterKeyword.filter(keyword => {
-        if(keyword.indexOf("/") === -1){ // 判断是否为正则
-            return cartTitle.innerText.indexOf(keyword) !== -1;
-        }
+    // 判断是否要过滤
+    const filter_result = filterKeyword
+                            
+                            .filter(item => {
+                                    if(item.rule.indexOf("/") === -1){ // 判断是否为正则
+                                        return cartTitle.innerText.indexOf(item.rule) !== -1;
+                                    }
         
-        // 正则过滤
-        return new RegExp(keyword.replaceAll("/","")).test(cartTitle.innerText);
-    });
-        
+                                // 正则过滤
+                                return new RegExp(item.rule.replaceAll("/","")).test(cartTitle.innerText);
+                            });
+    
     // 结果为包含过滤关键字数组
     if(Array.isArray(filter_result) && filter_result.length > 0){
-        console.log(`关键字：${filter_result}\n内容：${cartTitle.innerText}`);
+        console.log(`关键字：${JSON.stringify(filter_result)}\n内容：${cartTitle.innerText}`);
         return true;
     }
 }
@@ -146,25 +162,19 @@ function register_element_observer(){
 
 // 监听添加过滤词
 browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request != null && request.platform == 'zhihu') {
-        browser.storage.local.get('filter_keyword').then(items => {
-            if(JSON.stringify(items) === "{}"){
-                items = request.message;
-                
-            } else {
-                let keyword_array = items.filter_keyword.split(',');
-                keyword_array.push(request.message);
-                items = [...new Set(keyword_array)].join(',');
-            }
-            
-            local_filter_keywords = items;
-            browser.storage.local.set({"filter_keyword": items});
-            
-            filterHotContent(items.split(','), getContainerElement());
-            
-        }, error => console.log(error));
+    if(request == null){
+        return;
     }
-    // sendResponse('我收到了你的消息！');
+    
+    let filter_reulst = local_filter_keywords.filter(item => item.rule == request.rule);
+    if(filter_reulst.length <= 0){
+        local_filter_keywords.push(request);
+        
+        browser.storage.local.set({"filter_keyword": local_filter_keywords});
+        
+        filterHotContent(local_filter_keywords, getContainerElement());
+    }
+    
 });
 
 

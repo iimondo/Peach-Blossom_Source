@@ -13,7 +13,7 @@ let intervalID = setInterval(function(){
 
 // 获取本地数据
 function loadLocalData(){
-    browser.storage.local.get('filter_keyword').then(items => {
+    chrome.storage.local.get('filter_keyword', function(items){
         if(JSON.stringify(items) !== "{}"){
             local_filter_keywords = clear_expire_rule(items.filter_keyword);
             console.log('有效关键字', local_filter_keywords, items.filter_keyword);
@@ -21,8 +21,7 @@ function loadLocalData(){
             // 初始过滤显示内容
             filterVisibContent();
         }
-        
-    }, error => console.log(error));
+    });
 }
 
 
@@ -119,7 +118,7 @@ function printFilterInfo(keywords, element){
 
 
 // 监听添加过滤词
-browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if(request == null){
         return;
     }
@@ -128,7 +127,7 @@ browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if(filter_reulst.length <= 0){
         local_filter_keywords.push(request);
         
-        browser.storage.local.set({"filter_keyword": local_filter_keywords});
+        chrome.storage.local.set({"filter_keyword": local_filter_keywords});
         
         filterVisibContent();
     }
