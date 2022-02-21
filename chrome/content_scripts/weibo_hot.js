@@ -1,5 +1,14 @@
 let local_filter_keywords = [];
 
+
+window.addEventListener('unload', function(event) {
+    chrome.storage.local.set({"filter_keyword": local_filter_keywords});
+    
+    event.preventDefault();
+    event.returnValue = '';
+});
+
+
 // 微博内容为动态生成
 let intervalID = setInterval(function(){
     let item_wrapper = document.querySelector('.vue-recycle-scroller__item-wrapper');
@@ -128,7 +137,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if(filter_reulst.length <= 0){
         local_filter_keywords.push(request);
         
-        chrome.storage.local.set({"filter_keyword": local_filter_keywords});
+        //chrome.storage.local.set({"filter_keyword": local_filter_keywords});
         
         filterVisibContent();
     }

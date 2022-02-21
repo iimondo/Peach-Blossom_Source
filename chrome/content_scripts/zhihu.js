@@ -2,8 +2,11 @@ let local_filter_keywords = [];
 
 
 // 页面关闭时，重新设置数据
-window.addEventListener("unload", function(event) {
-    chrome.storage.local.set(local_filter_keywords);
+window.addEventListener('unload', function(event) {
+    chrome.storage.local.set({"filter_keyword": local_filter_keywords});
+    
+    event.preventDefault();
+    event.returnValue = '';
 });
 
 
@@ -181,7 +184,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if(filter_reulst.length <= 0){
         local_filter_keywords.push(request);
         
-        chrome.storage.local.set({"filter_keyword": local_filter_keywords});
+        //chrome.storage.local.set({"filter_keyword": local_filter_keywords});
         
         filterHotContent(local_filter_keywords, getContainerElement());
     }
