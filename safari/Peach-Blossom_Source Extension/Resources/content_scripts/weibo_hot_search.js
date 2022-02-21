@@ -1,5 +1,15 @@
 let local_filter_keywords = [];
 
+
+// 页面关闭时，重新设置数据
+window.addEventListener('unload', function(event) {
+    browser.storage.local.set({"filter_keyword": local_filter_keywords});
+    
+    event.preventDefault();
+    event.returnValue = '';
+});
+
+
 // 微博内容为动态生成
 let intervalID = setInterval(function(){
     let item_wrapper = document.querySelector('.vue-recycle-scroller__item-wrapper');
@@ -29,7 +39,7 @@ function loadLocalData(){
 // 清除过期数据, 返回为不过期数据
 function clear_expire_rule(datas){
    return datas
-        .filter(item => (item.platform == 'weibo' || item.platform == 'all'))
+        
         .filter(item => {
             if(item.expire == ""){ // 默认永久时间
                 return true;
@@ -82,6 +92,7 @@ function filterContent_(filterKeyword, item){
     
     // 判断是否要过滤
     const filter_result = filterKeyword
+                            .filter(item => (item.platform == 'weibo' || item.platform == 'all'))
                             .filter(item => {
                                     if(item.rule.indexOf("/") === -1){ // 判断是否为正则
                                         return itemFlex.innerText.indexOf(item.rule) !== -1;
@@ -128,7 +139,7 @@ browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if(filter_reulst.length <= 0){
         local_filter_keywords.push(request);
         
-        browser.storage.local.set({"filter_keyword": local_filter_keywords});
+        //browser.storage.local.set({"filter_keyword": local_filter_keywords});
         
         filterVisibContent();
     }

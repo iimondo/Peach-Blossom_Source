@@ -1,12 +1,18 @@
 {
     "manifest_version": 2,
-    "name": "Peach-Blossom_Source",
+    "name": "摸鱼助手",
     "version": "0.0.1",
-    "description": "屏蔽",
+    "description": "内容屏蔽扩展, 根据关键字或正则表达式屏蔽知乎、微博上的内容, 支持屏蔽知乎视频",
+
+    "icons":{
+        "16": "icon/icon-16.png",
+        "48": "icon/icon-48.png",
+        "128": "icon/icon-128.png"
+    },
 
     "browser_action": {
-        "default_icon": "icon/bilibili.png",
-        "default_title": "page action",
+        "default_icon": "icon/icon-48.png",
+        "default_title": "支持知乎、微博, 自定义屏蔽内容",
         "default_popup": "popup/popup.html"
     },
 

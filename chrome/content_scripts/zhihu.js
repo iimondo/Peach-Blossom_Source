@@ -1,6 +1,12 @@
 let local_filter_keywords = [];
 
 
+// 页面关闭时，重新设置数据
+window.addEventListener("unload", function(event) {
+    chrome.storage.local.set(local_filter_keywords);
+});
+
+
 // 获取本地数据
 function loadLocalData(){
     chrome.storage.local.get('filter_keyword', function(items){
@@ -9,17 +15,16 @@ function loadLocalData(){
             console.log('有效关键字', local_filter_keywords, items.filter_keyword);
             
             filterHotContent(local_filter_keywords, getContainerElement());
-            
-            register_element_observer();
         }
+
+        register_element_observer();
     });
 }
 
 
 // 清除过期数据, 返回为不过期数据
 function clear_expire_rule(datas){
-   return datas
-            .filter(item => (item.platform == 'zhihu' || item.platform == 'all')) // 过滤平台
+   return datas          
             .filter(item => {
                 if(item.expire == ""){ // 默认永久时间
                     return true;
@@ -76,10 +81,17 @@ function filterHotContent_(filterKeyword, element){
         console.log('filterHotContent_().cartTitle not found');
         return false;
     }
+
+     // 视频全部过滤
+     if(element.querySelector('.VideoAnswerPlayer') != null
+            || element.querySelector('.ZVideoItem-player') != null){
+        console.log(`过滤视频: ${cartTitle.innerText}`);
+        return true;
+    }
     
     // 判断是否要过滤
     const filter_result = filterKeyword
-                            
+                            .filter(item => (item.platform == 'zhihu' || item.platform == 'all')) // 过滤平台
                             .filter(item => {
                                     if(item.rule.indexOf("/") === -1){ // 判断是否为正则
                                         return cartTitle.innerText.indexOf(item.rule) !== -1;

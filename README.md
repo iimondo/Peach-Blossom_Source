@@ -2,5 +2,5 @@
 闲暇经常浏览获取资讯的网站是知乎、微博、豆瓣，但近年政治性宣传内容越来越多，非常影响网上冲浪的体验。这个插件可以屏蔽含有关键字的内容，关键字由自己定义，支持正则。
 
 # 支持
- - 知乎热搜、推荐、关注 (safari ✓、chrome ×、mobile ×)
- - 微博热搜榜 (safari ✓、chrome ×、mobile ×)
+ - 知乎热搜、推荐、关注 (safari ✓、chrome ✓、mobile ×)
+ - 微博热搜榜 (safari ✓、chrome ✓、mobile ×)

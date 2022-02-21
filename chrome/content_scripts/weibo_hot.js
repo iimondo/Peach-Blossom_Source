@@ -28,7 +28,7 @@ function loadLocalData(){
 // 清除过期数据, 返回为不过期数据
 function clear_expire_rule(datas){
    return datas
-        .filter(item => (item.platform == 'weibo' || item.platform == 'all'))
+        
         .filter(item => {
             if(item.expire == ""){ // 默认永久时间
                 return true;
@@ -81,6 +81,7 @@ function filterContent_(filterKeyword, item){
     
     // 判断是否要过滤
     const filter_result = filterKeyword
+                            .filter(item => (item.platform == 'weibo' || item.platform == 'all'))
                             .filter(item => {
                                     if(item.rule.indexOf("/") === -1){ // 判断是否为正则
                                         return itemFlex.innerText.indexOf(item.rule) !== -1;
