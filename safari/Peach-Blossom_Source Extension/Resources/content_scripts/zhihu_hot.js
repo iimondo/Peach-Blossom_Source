@@ -15,6 +15,7 @@ function loadLocalData(){
     browser.storage.local.get('filter_keyword').then(items => {
         if(JSON.stringify(items) !== "{}"){
             local_filter_keywords = clear_expire_rule(items.filter_keyword);
+            
             console.log('有效关键字', local_filter_keywords, items.filter_keyword);
             
             filterHotContent(local_filter_keywords, getContainerElement()); 
