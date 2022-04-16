@@ -16,8 +16,8 @@ browser.storage.local.get('tianya').then(item => {
 function filter_item(name){
     let list = [];
     
-    [...document.querySelectorAll('.atl-main > .atl-item')].forEach(item=>{
-        if(item.getAttribute('_host') !== name){
+    [...document.querySelectorAll('.atl-main > .atl-item')].forEach(item => {
+        if(name !== '*' && item.getAttribute('_host') !== name){
             list.push(item);
         }
     });

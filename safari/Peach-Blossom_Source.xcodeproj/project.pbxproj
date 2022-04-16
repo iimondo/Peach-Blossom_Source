@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980AC19A27FF138A00435B94 /* text_cover.js in Resources */ = {isa = PBXBuildFile; fileRef = 980AC19927FF138A00435B94 /* text_cover.js */; };
 		982CBDDB27A4FF010018090A /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 982CBDDA27A4FF010018090A /* popup */; };
 		9857FB5327A4ED6C00D3A8FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */; };
 		9857FB5727A4ED6C00D3A8FE /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 9857FB5527A4ED6C00D3A8FE /* Main.html */; };
@@ -25,6 +26,7 @@
 		98AC459A27A7C80000000589 /* zhihu_hot.js in Resources */ = {isa = PBXBuildFile; fileRef = 98AC459927A7C80000000589 /* zhihu_hot.js */; };
 		98AC459C27A7CCC200000589 /* weibo_hot_search.js in Resources */ = {isa = PBXBuildFile; fileRef = 98AC459B27A7CCC200000589 /* weibo_hot_search.js */; };
 		98B4AB6227C4D38F00029B87 /* zhihu_question.js in Resources */ = {isa = PBXBuildFile; fileRef = 98B4AB6127C4D38F00029B87 /* zhihu_question.js */; };
+		98E3BCBE27FFFE8400CED4D4 /* text_cover_css.css in Resources */ = {isa = PBXBuildFile; fileRef = 98E3BCBD27FFFE8400CED4D4 /* text_cover_css.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		980AC19927FF138A00435B94 /* text_cover.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = text_cover.js; path = content_scripts/text_cover.js; sourceTree = "<group>"; };
 		982CBDDA27A4FF010018090A /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = popup; sourceTree = "<group>"; };
 		9857FB4F27A4ED6C00D3A8FE /* Peach-Blossom_Source.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peach-Blossom_Source.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9857FB5227A4ED6C00D3A8FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		98AC459927A7C80000000589 /* zhihu_hot.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = zhihu_hot.js; path = content_scripts/zhihu_hot.js; sourceTree = "<group>"; };
 		98AC459B27A7CCC200000589 /* weibo_hot_search.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = weibo_hot_search.js; path = content_scripts/weibo_hot_search.js; sourceTree = "<group>"; };
 		98B4AB6127C4D38F00029B87 /* zhihu_question.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = zhihu_question.js; path = content_scripts/zhihu_question.js; sourceTree = "<group>"; };
+		98E3BCBD27FFFE8400CED4D4 /* text_cover_css.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = text_cover_css.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 		9857FB7227A4ED6E00D3A8FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				98E3BCBC27FFFE6D00CED4D4 /* css */,
 				982CBDDA27A4FF010018090A /* popup */,
 				9857FB7527A4ED6E00D3A8FE /* images */,
 				9857FB7727A4ED6E00D3A8FE /* manifest.json */,
@@ -160,8 +165,17 @@
 				98AC459B27A7CCC200000589 /* weibo_hot_search.js */,
 				98B4AB6127C4D38F00029B87 /* zhihu_question.js */,
 				9871F15D27F94770003E9996 /* tianya_filter.js */,
+				980AC19927FF138A00435B94 /* text_cover.js */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		98E3BCBC27FFFE6D00CED4D4 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				98E3BCBD27FFFE8400CED4D4 /* text_cover_css.css */,
+			);
+			path = css;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +277,8 @@
 				98AC459C27A7CCC200000589 /* weibo_hot_search.js in Resources */,
 				98AC459A27A7C80000000589 /* zhihu_hot.js in Resources */,
 				9857FB7827A4ED6E00D3A8FE /* manifest.json in Resources */,
+				980AC19A27FF138A00435B94 /* text_cover.js in Resources */,
+				98E3BCBE27FFFE8400CED4D4 /* text_cover_css.css in Resources */,
 				982CBDDB27A4FF010018090A /* popup in Resources */,
 				9871F15E27F94770003E9996 /* tianya_filter.js in Resources */,
 				986E075527A5473F00319706 /* content_scripts in Resources */,
