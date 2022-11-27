@@ -1,54 +1,63 @@
-let local_filter_keywords = [];
+let local_filter_keywords = [
+    {"platform": 'zhihu', "rule": '/计算机|中央/'},
+    {"platform": 'zhihu', "rule": '/美|台/'},
+    {"platform": 'zhihu', "rule": '/俄|乌/'},
+    {"platform": 'zhihu', "rule": '/港|就业/'},
+    {"platform": 'zhihu', "rule": '/程序员|裁员/'},
+    {"platform": 'zhihu', "rule": '/二十大|中国/'},
+    {"platform": 'zhihu', "rule": '/富士康|郑州/'},
+    {"platform": 'zhihu', "rule": '/(?=.*重庆)(?=.*星巴克)/'}
+];
 
 
 // 页面关闭时，重新设置数据
-window.addEventListener('unload', function(event) {
-    browser.storage.local.set({"filter_keyword": local_filter_keywords});
-    
-    event.preventDefault();
-    event.returnValue = '';
-});
+//window.addEventListener('unload', function(event) {
+//    browser.storage.local.set({"filter_keyword": local_filter_keywords});
+//
+//    event.preventDefault();
+//    event.returnValue = '';
+//});
 
 
 // 获取本地数据
 function loadLocalData(){
-    browser.storage.local.get('filter_keyword').then(items => {
-        if(JSON.stringify(items) !== "{}"){
-            local_filter_keywords = clear_expire_rule(items.filter_keyword);
+//    browser.storage.local.get('filter_keyword').then(items => {
+//        if(JSON.stringify(items) !== "{}"){
+            //local_filter_keywords = clear_expire_rule(items.filter_keyword);
             
-            console.log('有效关键字', local_filter_keywords, items.filter_keyword);
+            console.log('有效关键字', local_filter_keywords);
             
             filterHotContent(local_filter_keywords, getContainerElement()); 
-        }
+//        }
 
         register_element_observer();
         
-    }, error => console.log(error));
+//    }, error => console.log(error));
 }
 
 
 // 清除过期数据, 返回为不过期数据
-function clear_expire_rule(datas){
-   return datas
-            .filter(item => {
-                if(item.expire == ""){ // 默认永久时间
-                    return true;
-                }
-       
-                return new Date(item.expire.replace(/-/g,'/')).getTime() > new Date().getTime();
-            });
-}
+//function clear_expire_rule(datas){
+//   return datas
+//            .filter(item => {
+//                if(item.expire == ""){ // 默认永久时间
+//                    return true;
+//                }
+//       
+//                return new Date(item.expire.replace(/-/g,'/')).getTime() > new Date().getTime();
+//            });
+//}
 
 
 // 返回当前列表的容器
 function getContainerElement(){
     let listShortcut = document.querySelector('#TopstoryContent > .ListShortcut');
-    let hotList = listShortcut.querySelector('.HotList');
-    let topstory_recommend = listShortcut.querySelector('.Topstory-recommend');
-    let topstory_follow = listShortcut.querySelector('.Topstory-follow');
+    let hotList = listShortcut.querySelector('.HotList'); // 热门
+    let topstory_recommend = listShortcut.querySelector('.Topstory-recommend'); // 推荐
+    let topstory_follow = listShortcut.querySelector('.Topstory-follow'); // 关注
     
     if(hotList !== null ){
-        return hotList.querySelectorAll('section');
+        return hotList.querySelectorAll('section'); // 去除热置顶前5内容
             
     } else if(topstory_recommend !== null){
         return topstory_recommend.querySelectorAll('.TopstoryItem');
@@ -65,9 +74,8 @@ function getContainerElement(){
 function filterHotContent(filterKeyword, elements){
     let removeCartItem = [];
     
-    elements.forEach(item =>  {
-        let is_filter = filterHotContent_(filterKeyword, item);
-        if(is_filter){
+    elements.forEach(item => {
+        if(filterHotContent_(filterKeyword, item)){
             removeCartItem.push(item);
         }
     });
@@ -177,21 +185,21 @@ function register_element_observer(){
 
 
 // 监听添加过滤词
-browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if(request == null){
-        return;
-    }
-    
-    let filter_reulst = local_filter_keywords.filter(item => item.rule == request.rule);
-    if(filter_reulst.length <= 0){
-        local_filter_keywords.push(request);
-        
-        //browser.storage.local.set({"filter_keyword": local_filter_keywords});
-        
-        filterHotContent(local_filter_keywords, getContainerElement());
-    }
-    
-});
+//browser.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+//    if(request == null){
+//        return;
+//    }
+//
+//    let filter_reulst = local_filter_keywords.filter(item => item.rule == request.rule);
+//    if(filter_reulst.length <= 0){
+//        local_filter_keywords.push(request);
+//
+//        //browser.storage.local.set({"filter_keyword": local_filter_keywords});
+//
+//        filterHotContent(local_filter_keywords, getContainerElement());
+//    }
+//
+//});
 
 
 // init

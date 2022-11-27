@@ -70,7 +70,6 @@ function element_callbac(mutationList, observer) {
         mutationList.forEach((mutation) => {
           switch(mutation.type) {
             case 'childList':
-                  console.log('1111');
                   if(mutation.addedNodes.length > 0){
                       filterHotContent(local_filter_keywords, mutation.addedNodes);
                   }

@@ -15,28 +15,12 @@
 
     "content_scripts": [
         {
-            "matches": ["～<all_urls>"],
-            "run_at": "document_end",
-            "css":["css/text_cover_css.css"],
-            "js": ["content_scripts/text_cover.js"]
-        },
-        {
             "matches": ["*://*.zhihu.com/", "*://*.zhihu.com/follow", "*://*.zhihu.com/hot"],
             "run_at": "document_end",
             "js": ["content_scripts/zhihu_hot.js"]
         },
         {
-            "matches": ["~*://*.zhihu.com/question/*"],
-            "run_at": "document_end",
-            "js": ["content_scripts/zhihu_question.js"]
-        },
-        {
-            "matches": ["~*://weibo.com/hot/search", "~*://weibo.com/hot/topic"],
-            "run_at": "document_end",
-            "js": ["content_scripts/weibo_hot_search.js"]
-        },
-        {
-            "matches": ["*://bbs.tianya.cn/*"],
+            "matches": ["*://*.tmall.com/*"],
             "run_at": "document_end",
             "js": ["content_scripts/tianya_filter.js"]
         }
